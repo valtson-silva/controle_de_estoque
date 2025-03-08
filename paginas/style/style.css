@@ -1,0 +1,15 @@
+section h2 {
+    text-align: center;
+}
+
+#alert {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 12rem;
+    text-align: center;
+}
+
+#btn-add {
+    width: 10rem;
+}
