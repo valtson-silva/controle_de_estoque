@@ -1,5 +1,6 @@
 const select = document.getElementById("option-list")
 const formModelCar = document.getElementById("model-car")
+const API_URL = process.env.API_URL
 
 function getCookie(name) {
     const cookies = document.cookie.split("; ");
@@ -31,7 +32,7 @@ function update(id, a) {
 
 function deleteExhaust(id, a) {
     a.addEventListener("click", async () => {
-        const responseExhaust = await fetch(`http://127.0.0.1:8000/escapamento/${id}/delete/`, {
+        const responseExhaust = await fetch(`${API_URL}/escapamento/${id}/delete/`, {
             method: "DELETE",
             headers: {
                 "X-CSRFToken": csrftoken,
@@ -100,7 +101,7 @@ function createTd(esc) {
 }
 
 async function OptionsModels() {
-    const response = await fetch("http://127.0.0.1:8000/modelo_de_carro/", {
+    const response = await fetch(`${API_URL}/modelo_de_carro/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
@@ -116,7 +117,7 @@ OptionsModels()
 formModelCar.addEventListener("submit", async (ev) => {
     ev.preventDefault()
 
-    const response = await fetch("http://127.0.0.1:8000/modelo_de_carro/", {
+    const response = await fetch(`${API_URL}/modelo_de_carro/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
@@ -133,7 +134,7 @@ formModelCar.addEventListener("submit", async (ev) => {
     }
 
     try{
-        const responseEsc = await fetch(`http://127.0.0.1:8000/escapamento/modelo/${modelID}`, {
+        const responseEsc = await fetch(`${API_URL}/escapamento/modelo/${modelID}`, {
             method: "GET",
             headers: {
                 "X-CSRFToken": csrftoken
@@ -150,7 +151,7 @@ formModelCar.addEventListener("submit", async (ev) => {
 })
 
 document.getElementById("logout").addEventListener("click", async () => {
-    const response = await fetch(`http://127.0.0.1:8000/logout/`, {
+    const response = await fetch(`${API_URL}/logout/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
