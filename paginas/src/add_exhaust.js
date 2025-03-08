@@ -1,4 +1,5 @@
 const select = document.getElementById("option-list")
+const API_URL = process.env.API_URL
 
 function getCookie(name) {
     const cookies = document.cookie.split("; ");
@@ -23,7 +24,7 @@ function createOptions(list) {
 }
 
 async function OptionsModels() {
-    const response = await fetch("http://127.0.0.1:8000/modelo_de_carro/", {
+    const response = await fetch(`${API_URL}/modelo_de_carro/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
@@ -40,7 +41,7 @@ OptionsModels()
 document.getElementById("add-exhaust").addEventListener("submit", async (ev) => {
     ev.preventDefault()
 
-    const responseModels = await fetch("http://127.0.0.1:8000/modelo_de_carro/", {
+    const responseModels = await fetch(`${API_URL}/modelo_de_carro/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
@@ -56,7 +57,7 @@ document.getElementById("add-exhaust").addEventListener("submit", async (ev) => 
         }
     }
 
-    const responseCar = await fetch(`http://127.0.0.1:8000/escapamento/modelo/${modelID}`, {
+    const responseCar = await fetch(`${API_URL}/escapamento/modelo/${modelID}`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken,
@@ -77,7 +78,7 @@ document.getElementById("add-exhaust").addEventListener("submit", async (ev) => 
         }
         
         try {
-            const responseExhaust = await fetch("http://127.0.0.1:8000/escapamento/create/", {
+            const responseExhaust = await fetch(`${API_URL}/escapamento/create/`, {
                 method: "POST",
                 headers: {
                     "X-CSRFToken": csrftoken,
@@ -88,7 +89,7 @@ document.getElementById("add-exhaust").addEventListener("submit", async (ev) => 
             }).then((res) => res.json())
             
     
-            const response = await fetch(`http://127.0.0.1:8000/escapamento/modelo/create/`, {
+            const response = await fetch(`${API_URL}/escapamento/modelo/create/`, {
                 method: "POST",
                 headers: {
                     "X-CSRFToken": csrftoken,
@@ -117,7 +118,7 @@ document.getElementById("add-exhaust").addEventListener("submit", async (ev) => 
 })
 
 document.getElementById("logout").addEventListener("click", async () => {
-    const response = await fetch(`http://127.0.0.1:8000/logout/`, {
+    const response = await fetch(`${API_URL}/logout/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
