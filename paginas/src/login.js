@@ -1,3 +1,4 @@
+const API_URL = process.env.API_URL
 const form = document.getElementById("login")
 
 form.addEventListener("submit", async (ev) => {
@@ -7,7 +8,7 @@ form.addEventListener("submit", async (ev) => {
     params.append("email", document.getElementById("email").value);
     params.append("password", document.getElementById("password").value)
 
-    fetch("http://127.0.0.1:8000/login/", {
+    fetch("${API_URL}/login/", {
     method: "POST",
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
