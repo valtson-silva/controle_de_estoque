@@ -1,3 +1,4 @@
+const API_URL = process.env.API_URL
 function getCookie(name) {
     const cookies = document.cookie.split("; ");
     for (let cookie of cookies) {
@@ -20,7 +21,7 @@ document.getElementById("add-car-model").addEventListener("submit", async (ev) =
     }
     const exhaust_id = localStorage.getItem("car_model_id")
     try {
-        const responseExhaust = await fetch(`http://127.0.0.1:8000/modelo_de_carro/${exhaust_id}/update/`, {
+        const responseExhaust = await fetch(`${API_URL}/modelo_de_carro/${exhaust_id}/update/`, {
             method: "PUT",
             headers: {
                 "X-CSRFToken": csrftoken,
@@ -46,7 +47,7 @@ document.getElementById("add-car-model").addEventListener("submit", async (ev) =
 })
 
 document.getElementById("logout").addEventListener("click", async () => {
-    const response = await fetch(`http://127.0.0.1:8000/logout/`, {
+    const response = await fetch(`${API_URL}/logout/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
