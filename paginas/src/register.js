@@ -17,7 +17,7 @@ form.addEventListener("submit", async (ev) => {
     body: params.toString(), 
     }).then(response => {
         if (response.status === 201) {
-            return window.location.href = "./login.html"
+            return window.location.href = "./index.html"
         } else {
             document.getElementById("alert").style.display = "inline"
             document.getElementById("alert").textContent = "Dados inválidos"
