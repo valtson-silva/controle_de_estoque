@@ -1,3 +1,4 @@
+const API_URL = process.env.API_URL
 function getCookie(name) {
     const cookies = document.cookie.split("; ");
     for (let cookie of cookies) {
@@ -20,7 +21,7 @@ document.getElementById("add-products").addEventListener("submit", async (ev) =>
     }
     
     try {
-        const response = await fetch("http://127.0.0.1:8000/produtos/create/", {
+        const response = await fetch(`${API_URL}/produtos/create/`, {
             method: "POST",
             headers: {
                 "X-CSRFToken": csrftoken,
@@ -45,7 +46,7 @@ document.getElementById("add-products").addEventListener("submit", async (ev) =>
 })
 
 document.getElementById("logout").addEventListener("click", async () => {
-    const response = await fetch(`http://127.0.0.1:8000/logout/`, {
+    const response = await fetch(`${API_URL}/logout/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
