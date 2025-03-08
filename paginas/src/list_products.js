@@ -1,3 +1,4 @@
+const API_URL = process.env.API_URL
 function getCookie(name) {
     const cookies = document.cookie.split("; ");
     for (let cookie of cookies) {
@@ -19,7 +20,7 @@ function update(id, a) {
 
 function deleteExhaust(id, a) {
     a.addEventListener("click", async () => {
-        const responseExhaust = await fetch(`http://127.0.0.1:8000/produtos/${id}/delete/`, {
+        const responseExhaust = await fetch(`${API_URL}/produtos/${id}/delete/`, {
             method: "DELETE",
             headers: {
                 "X-CSRFToken": csrftoken,
@@ -89,7 +90,7 @@ function createTd(prod) {
 
 async function listProducts() {
     try{
-        const responseEsc = await fetch(`http://127.0.0.1:8000/produtos/`, {
+        const responseEsc = await fetch(`${API_URL}/produtos/`, {
             method: "GET",
             headers: {
                 "X-CSRFToken": csrftoken
@@ -107,7 +108,7 @@ async function listProducts() {
 listProducts()
 
 document.getElementById("logout").addEventListener("click", async () => {
-    const response = await fetch(`http://127.0.0.1:8000/logout/`, {
+    const response = await fetch(`${API_URL}/logout/`, {
         method: "GET",
         headers: {
             "X-CSRFToken": csrftoken
