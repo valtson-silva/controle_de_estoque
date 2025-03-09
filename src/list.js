@@ -1,6 +1,6 @@
 const select = document.getElementById("option-list")
 const formModelCar = document.getElementById("model-car")
-const API_URL = process.env.API_URL
+const API_URL = document.querySelector('meta[name="api-url"]').getAttribute('content')
 
 function getCookie(name) {
     const cookies = document.cookie.split("; ");
