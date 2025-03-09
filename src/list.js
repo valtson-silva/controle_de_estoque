@@ -1,13 +1,3 @@
-async function setCookie() {
-    fetch("https://controle-de-estoque-backend.onrender.com/set-csrf/", {
-    credentials: "include", 
-    })
-    .then(response => response.json())
-    .then(data => console.log(data));
-}
-
-setCookie()
-
 const select = document.getElementById("option-list")
 const formModelCar = document.getElementById("model-car")
 const API_URL = document.querySelector('meta[name="api-url"]').getAttribute('content')
