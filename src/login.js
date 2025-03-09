@@ -18,7 +18,7 @@ form.addEventListener("submit", async (ev) => {
     })
     .then(response => {
         if (response.status !== 200) {
-            return window.location.href = "./index.html"
+            // return window.location.href = "./index.html"
         } else if (response.status === 200) {
             return window.location.href = "./list_exhaust.html"
         }
