@@ -14,7 +14,7 @@ async function OptionsModels() {
     const response = await fetch(`${API_URL}/modelo_de_carro/`, {
         method: "GET",
         headers: {
-            "X-CSRFToken": csrftoken
+            "X-CSRFToken": getCookie("csrftoken")
         },
         credentials: "include" 
     }).then((res) => res.json())
