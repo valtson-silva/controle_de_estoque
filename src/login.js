@@ -1,4 +1,4 @@
-const API_URL = process.env.API_URL
+const API_URL = document.querySelector('meta[name="api-url"]').getAttribute('content')
 const form = document.getElementById("login")
 
 form.addEventListener("submit", async (ev) => {
