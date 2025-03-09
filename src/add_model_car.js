@@ -10,6 +10,18 @@ function getCookie(name) {
     return null;
 }
 
+async function OptionsModels() {
+    const response = await fetch(`${API_URL}/modelo_de_carro/`, {
+        method: "GET",
+        headers: {
+            "X-CSRFToken": csrftoken
+        },
+        credentials: "include" 
+    }).then((res) => res.json())
+}
+
+OptionsModels()
+
 document.getElementById("add-model-car").addEventListener("submit", async (ev) => {
     ev.preventDefault()
 
