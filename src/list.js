@@ -14,6 +14,7 @@ function getCookie(name) {
 }
 
 const csrftoken = getCookie("csrftoken");
+console.log(csrftoken)
 
 function createOptions(list) {
     for (let i = 0; i < list.length; i++) {
