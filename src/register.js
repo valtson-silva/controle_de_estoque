@@ -1,7 +1,6 @@
 const API_URL = document.querySelector('meta[name="api-url"]').getAttribute('content')
 const form = document.getElementById("register")
 
-console.log(API_URL)
 form.addEventListener("submit", async (ev) => {
     ev.preventDefault()
     
