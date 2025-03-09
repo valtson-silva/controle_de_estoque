@@ -29,7 +29,7 @@ document.getElementById("add-model-car").addEventListener("submit", async (ev) =
         name: document.getElementById("name").value,
         year: parseFloat(document.getElementById("year").value),
     }
-    
+    console.log(getCookie("csrftoken"))
     try {
         const response = await fetch(`${API_URL}/modelo_de_carro/create/`, {
             method: "POST",
