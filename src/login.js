@@ -1,5 +1,15 @@
 const API_URL = document.querySelector('meta[name="api-url"]').getAttribute('content')
 const form = document.getElementById("login")
+function getCookie(name) {
+    const cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+        let [key, value] = cookie.split("=");
+        if (key === name) {
+            return value;
+        }
+    }
+    return null;
+}
 
 form.addEventListener("submit", async (ev) => {
     ev.preventDefault()
@@ -11,6 +21,7 @@ form.addEventListener("submit", async (ev) => {
     fetch(`${API_URL}/login/`, {
     method: "POST",
     headers: {
+        "X-CSRFToken": getCookie("csrftoken"),
         "Content-Type": "application/x-www-form-urlencoded",
     },
     credentials: 'include',
