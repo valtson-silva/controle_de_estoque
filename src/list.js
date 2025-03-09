@@ -7,7 +7,7 @@ function getCookie(name) {
     for (let cookie of cookies) {
         let [key, value] = cookie.split("=");
         if (key === name) {
-            return value;
+            return decodeURIComponent(value)
         }
     }
     return null;
