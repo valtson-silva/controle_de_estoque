@@ -1,6 +1,7 @@
 const API_URL = process.env.API_URL
 const form = document.getElementById("register")
 
+console.log(API_URL)
 form.addEventListener("submit", async (ev) => {
     ev.preventDefault()
     
