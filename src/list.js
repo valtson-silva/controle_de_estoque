@@ -111,6 +111,9 @@ async function OptionsModels() {
     }).then((res) => res.json())
 
     createOptions(response)
+    setTimeout(() => {
+         console.log(getCookie("csrftoken"))
+    }, 3000)
 }
 
 OptionsModels()
