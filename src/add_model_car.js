@@ -11,6 +11,7 @@ function getCookie(name) {
 }
 
 const csrftoken = getCookie("csrftoken")
+console.log(csrftoken)
 
 document.getElementById("add-model-car").addEventListener("submit", async (ev) => {
     ev.preventDefault()
