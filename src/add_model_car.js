@@ -10,9 +10,6 @@ function getCookie(name) {
     return null;
 }
 
-const csrftoken = getCookie("csrftoken")
-console.log(csrftoken)
-
 document.getElementById("add-model-car").addEventListener("submit", async (ev) => {
     ev.preventDefault()
 
@@ -25,7 +22,7 @@ document.getElementById("add-model-car").addEventListener("submit", async (ev) =
         const response = await fetch(`${API_URL}/modelo_de_carro/create/`, {
             method: "POST",
             headers: {
-                "X-CSRFToken": csrftoken,
+                "X-CSRFToken": getCookie("csrftoken"),
                 "Content-type": "application/json"
             },
             credentials: "include",
@@ -50,7 +47,7 @@ document.getElementById("logout").addEventListener("click", async () => {
     const response = await fetch(`${API_URL}/logout/`, {
         method: "GET",
         headers: {
-            "X-CSRFToken": csrftoken
+            "X-CSRFToken": getCookie("csrftoken")
         },
         credentials: "include" 
     })
